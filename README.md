@@ -26,8 +26,11 @@
 
 
 ## TODO 
-Currently reviewing the AWS dart runtime package and how this works to gain a better understanding of how I could possibly have a more iterative approach. 
-Reviewing this here: https://github.com/awslabs/aws-lambda-dart-runtime/blob/master/lib/client/client.dart
+So far, I enjoy my modificiations on how to manage and work on dart programs in the lambda environment. 
+I am making this to be a repeatable and re-useable base project for building applications in the serverless environment. 
+
+- Create an example for handling S3 events. 
+- Create an example for handling SQS events.
 
 
 

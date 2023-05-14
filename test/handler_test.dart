@@ -7,9 +7,10 @@ import 'dart:io' show File;
 import 'package:dart_lambda/handler.dart';
 import 'package:aws_lambda_dart_runtime/aws_lambda_dart_runtime.dart';
 
-final String filePath = './test/apigateway_get_event.json';
+final String filePath = './events/apigateway_get_event.json';
 final String contents = new File(filePath).readAsStringSync();
 final Map<String, dynamic> json = jsonDecode(contents);
+const String requestId = "TEST";
 
 void main() {
   // Define a group of tests
@@ -20,12 +21,21 @@ void main() {
 
       AwsApiGatewayEvent testEvent = AwsApiGatewayEvent.fromJson(json);
       Context testContext =
-          Context(requestId: 'TESTID', handler: 'apiGatewayHandler');
+          Context(requestId: requestId, handler: 'apiGatewayHandler');
       final response = await apiGatewayHandler(testContext, testEvent);
 
       expect(response.statusCode, equals(200));
-      // Assert: check that the result is what you expected
-      //expect(result, equals(expectedResult));
+    });
+
+    test('Test an HTTP Get Request with an unknow path', () async {
+      // Arrange: setup the conditions for your test
+      json["path"] = "/v1/hellocookies";
+      AwsApiGatewayEvent testEvent = AwsApiGatewayEvent.fromJson(json);
+      Context testContext =
+          Context(requestId: requestId, handler: 'apiGatewayHandler');
+      final response = await apiGatewayHandler(testContext, testEvent);
+
+      expect(response.statusCode, equals(400));
     });
   });
 }

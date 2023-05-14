@@ -20,4 +20,4 @@ echo "Compiled dart code compiled!"
 echo "Build lambda runtime with compiled dart code..."
 zip -j lambda.zip bootstrap
 
-sam local invoke -e ./events/test_event.json
+sam local invoke -e ./events/apigateway_get_event.json
