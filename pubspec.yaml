@@ -10,4 +10,5 @@ dependencies:
 
 dev_dependencies:
   build_runner:
+  test: any
   # Add your development dependencies here

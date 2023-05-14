@@ -3,8 +3,11 @@ import 'package:aws_lambda_dart_runtime/runtime/context.dart';
 
 Future<AwsApiGatewayResponse> apiGatewayHandler(
     Context context, AwsApiGatewayEvent event) async {
-  print("Hello world!");
-  print(event.toJson());
-  final response = {'message': 'hello ${context.requestId}'};
+  final response = handleGET(event);
   return AwsApiGatewayResponse.fromJson(response);
+}
+
+Map<String, dynamic> handleGET(AwsApiGatewayEvent event) {
+  if (event.httpMethod != 'GET') throw new Exception('GET requests only');
+  return {'message': "Hello from: ${event.path}"};
 }
