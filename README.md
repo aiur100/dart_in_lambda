@@ -25,6 +25,10 @@
 
 
 
+## TODO 
+Currently reviewing the AWS dart runtime package and how this works to gain a better understanding of how I could possibly have a more iterative approach. 
+Reviewing this here: https://github.com/awslabs/aws-lambda-dart-runtime/blob/master/lib/client/client.dart
+
 
 
 ## Compiling on an M1 environment: 
