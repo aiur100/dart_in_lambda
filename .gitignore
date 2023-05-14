@@ -1,0 +1,9 @@
+node_modules
+.aws-sam
+.serverless
+.dart_tool
+bootstrap
+lambda.zip
+pubspec.lock
+samconfig.toml
+serverless.yaml

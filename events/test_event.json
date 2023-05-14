@@ -1,0 +1,70 @@
+{
+  "context": {},
+  "event": {
+    "resource": "/myresource",
+  "path": "/myresource",
+  "httpMethod": "GET",
+  "headers": {
+    "Accept": "*/*",
+    "Accept-Encoding": "gzip, deflate",
+    "Cache-Control": "no-cache",
+    "Host": "localhost:3000",
+    "User-Agent": "AWS-SAM-CLI/0.0.0",
+    "X-Forwarded-Port": "3000",
+    "X-Forwarded-Proto": "http"
+  },
+  "multiValueHeaders": {
+    "Accept": ["*/*"],
+    "Accept-Encoding": ["gzip, deflate"],
+    "Cache-Control": ["no-cache"],
+    "Host": ["localhost:3000"],
+    "User-Agent": ["AWS-SAM-CLI/0.0.0"],
+    "X-Forwarded-Port": ["3000"],
+    "X-Forwarded-Proto": ["http"]
+  },
+  "queryStringParameters": {
+    "parameter1": "value1",
+    "parameter2": "value2"
+  },
+  "multiValueQueryStringParameters": {
+    "parameter1": ["value1"],
+    "parameter2": ["value2"]
+  },
+  "pathParameters": null,
+  "stageVariables": null,
+  "requestContext": {
+    "resourceId": "123456",
+    "resourcePath": "/myresource",
+    "httpMethod": "GET",
+    "extendedRequestId": "test-request-id",
+    "requestTime": "04/Mar/2021:19:03:58 +0000",
+    "path": "/myresource",
+    "accountId": "123456789012",
+    "protocol": "HTTP/1.1",
+    "stage": "Prod",
+    "domainPrefix": "testPrefix",
+    "requestTimeEpoch": 1614887038231,
+    "requestId": "test-request-id",
+    "identity": {
+      "cognitoIdentityPoolId": null,
+      "cognitoIdentityId": null,
+      "apiKey": "test-invoke-api-key",
+      "principalOrgId": null,
+      "cognitoAuthenticationType": null,
+      "userArn": "arn:aws:iam::123456789012:user/test_user",
+      "apiKeyId": "test-invoke-api-key-id",
+      "userAgent": "AWS-SAM-CLI/0.0.0",
+      "accountId": "123456789012",
+      "caller": "123456789012",
+      "sourceIp": "127.0.0.1",
+      "accessKey": "123456789012",
+      "cognitoAuthenticationProvider": null,
+      "user": "123456789012"
+    },
+    "domainName": "testPrefix.testDomainName",
+    "apiId": "c1xb0doad5"
+  },
+  "body": null,
+  "isBase64Encoded": false
+  }
+}

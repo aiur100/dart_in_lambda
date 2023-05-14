@@ -1,0 +1,42 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Dart Lambda Function with API Gateway
+
+Resources:
+  DartFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      PackageType: Zip
+      Architectures: 
+        - arm64
+      CodeUri: lambda.zip
+      Runtime: provided.al2
+      Handler: hello.ALB
+      MemorySize: 512
+      Timeout: 10
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - ecr:GetAuthorizationToken
+                - ecr:BatchCheckLayerAvailability
+                - ecr:GetDownloadUrlForLayer
+                - ecr:GetRepositoryPolicy
+                - ecr:DescribeRepositories
+                - ecr:ListImages
+                - ecr:DescribeImages
+                - ecr:BatchGetImage
+              Resource: "*"
+      Events:
+        HttpAny:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: ANY
+
+Outputs:
+  ApiUrlLink:
+    Description: URL of the API Gateway
+    Value: !Sub https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com
