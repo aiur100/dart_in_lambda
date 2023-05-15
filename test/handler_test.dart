@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:aws_lambda_dart_runtime/runtime/context.dart';
 import 'package:test/test.dart';
 import 'dart:io' show File;
-import 'package:dart_lambda/handler.dart';
+import 'package:dart_lambda/api_gateway/handler.dart';
 import 'package:aws_lambda_dart_runtime/aws_lambda_dart_runtime.dart';
 
 final String filePath = './events/apigateway_get_event.json';

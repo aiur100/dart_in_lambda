@@ -23,10 +23,20 @@
 - `compile_deploy.sh` will use a docker container to compile our code for an arm64 environment and then deploy it using AWS SAM. 
 - `local_test.sh` compiles and locally invokes the lambda function containing our code. 
 
+# Local Development Workflow
+1. Yes, test, test, test.  `dart test` runs the tests in the `./test` folder.  
+   Here we emulate the ApiGateway environment by building the requests and passing the events into the handler.
+
+2. Also, if you want to run a local server, it's not a perfect representation, but its better than trying
+   to figure out a perfect representation. Just run `dart run lib/api_gateway/local_api_only.dart`.  This is a local server that builds ApiGateway requests and passes them to your path handlers. 
+
+   This starts the server at http://127.0.0.1:8080.  
+   NOTE: I recommend you don't change this file, as its just a script needed for local development/debugging.
 
 
 ## TODO 
-So far, I enjoy my modificiations on how to manage and work on dart programs in the lambda environment. 
+- I need a way implement https testing.
+- So far, I enjoy my modificiations on how to manage and work on dart programs in the lambda environment. 
 I am making this to be a repeatable and re-useable base project for building applications in the serverless environment. 
 
 - Create an example for handling S3 events. 
