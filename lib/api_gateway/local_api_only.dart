@@ -17,14 +17,14 @@ Future<void> main() async {
 Future<void> handleRequests(HttpServer server) async {
   await for (HttpRequest request in server) {
     final contextIdString = uuid.v4();
-    print(
-        "${request.method} received ${request.uri} ${request.uri.queryParameters}");
     final event = AwsApiGatewayEvent(
         headers: convertHttpHeadersToAwsEventHeaders(request.headers),
         queryStringParameters: request.uri.queryParameters,
         httpMethod: request.method,
         path: request.uri.toString(),
         body: await utf8.decoder.bind(request).join());
+    print(
+        "${request.method} received ${request.uri} ${request.uri.queryParameters}\n${event.toJson()}");
     Context context =
         Context(requestId: contextIdString, handler: 'apiGatewayHandler');
     request.response.headers.contentType = ContentType('application', 'json');
