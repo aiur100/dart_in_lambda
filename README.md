@@ -16,32 +16,55 @@
  3. AWS SAM (This may be temporary). 
  4. Dart
 
+
  # Project Layout
  ── LICENSE.md
+
 ├── README.md
+
 ├── compile.Dockerfile
+
 ├── compile_deploy.sh
+
 ├── docker-compose.yml
+
 ├── env.json
+
 ├── events
+
 │   ├── apigateway_get_event.json
+
 │   └── test_event.json
+
 ├── lib
+
 │   └── api_gateway
+
 │       ├── handler.dart
+
 │       ├── local_api_only.dart
+
 │       └── main.dart
+
 ├── local.Dockerfile - This is used for local development
+
 ├── local_test.sh
+
 ├── pubspec.yaml
+
 ├── samconfig.toml
+
 ├── template.yaml
+
 ├── test
+
 │   └── handler_test.dart
+
 └── test.sh
 
 # Dart Set-up
- `dart pub get` to get all the dependcies. 
+ - `dart pub get` to get all the dependcies. 
+  - In the samconfig.toml file you'll need to add your AWS profile name there.  This is the profile in your aws key and secret on your local machine for your AWS account. Right now its set to my own.
 
 # Scripts
 - `compile_deploy.sh` will use a docker container to compile our code for an arm64 environment and then deploy it using AWS SAM. 
