@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  dart-api:
+    build:
+      context: .
+      dockerfile: local.Dockerfile
+    ports:
+      - 8080:8080
+    depends_on:
+      - dynamodb-local
+
+  dynamodb-local:
+    image: amazon/dynamodb-local
+    ports:
+      - 8000:8000

@@ -60,7 +60,9 @@ AwsApiGatewayEventHeaders convertHttpHeadersToAwsEventHeaders(
 }
 
 Future<HttpServer> createServer() async {
-  final address = InternetAddress.loopbackIPv4;
+  InternetAddress address = Platform.environment['RUNNING_IN_DOCKER'] == 'true'
+      ? InternetAddress('0.0.0.0')
+      : InternetAddress.loopbackIPv4;
   const port = 8080;
   return await HttpServer.bind(address, port);
 }

@@ -5,6 +5,5 @@ node_modules
 bootstrap
 lambda.zip
 pubspec.lock
-samconfig.toml
 serverless.yaml
 .DS_Store
